@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { productSearch } from "../Redux/Slice/productSlice";
 
-function Header() {
+function Header({insideHome}) {
   const dispatch = useDispatch()
   const [wishlistCount,setWishlistCount] = useState(0)
   const [cartCount,setCartCount] = useState(0)
@@ -38,9 +38,10 @@ function Header() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto gap-3">
-            <Nav.Link className="me-lg-5">
+            {
+              insideHome&&<Nav.Link className="me-lg-5">
               <input onChange={(e)=>dispatch(productSearch(e.target.value.toLowerCase()))} type="text" className="form-control" placeholder="Search Product!!!" />
-            </Nav.Link>
+            </Nav.Link>}
             <Nav.Link className="btn border rounded">
               <Link
                 to={"/wishlist"}
