@@ -55,7 +55,7 @@ function Home() {
             <Spinner className="me-3" animation="border" variant="primary" />Loading...
           </div>:<Row className="container mt-5 mx-auto">
           {
-            products.length>0?visibleCards.map((product,index)=>( // replace products with visibleCards 
+            products.length>0?visibleCards.map((product,index)=>( 
               <Col key={index} className="mb-5" sm={12} md={6} lg={4} xl={3}>
             <Card className="shadow rounded" style={{ width: "18rem" }}>
               <Link to={`/view/${product.id}`}><Card.Img variant="top" style={{height:'180px'}} src={product.thumbnail} /></Link>
